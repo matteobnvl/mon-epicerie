@@ -1,0 +1,299 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+}
+body{
+    overflow-x: hidden;
+}
+
+body::-webkit-scrollbar{
+	width: 10px;
+	height: 10px;
+	background-color: transparent;
+}
+
+body::-webkit-scrollbar-thumb{
+	background-color: #333333 ;
+	border-radius:5px ;
+	border: 2px solid white;
+}
+
+body::-webkit-scrollbar-track{
+	background: transparent;
+}
+
+/* header */
+
+header{
+    width: 100%;
+    height: 15vh;
+    position: fixed;
+    z-index: 5;
+}
+
+.active{
+    background-color: white !important;
+}
+
+.active .burger i, .active .contain-title{
+    color: black !important;
+}
+
+
+
+.contain-header{
+    width:100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.contain-header .burger{
+    width: 9%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+}
+
+.contain-header .burger i{
+    cursor: pointer;
+    color: white;
+}
+
+
+.contain-header .contain-title{
+    width: 56%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    color: white;
+}
+
+
+.contain-header .contain-button{
+    width: 35%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.contain-header .contain-button .btn{
+    width: 150px;
+    height: 35%;
+    border: 1px solid transparent;
+    border-radius: 99px;
+    padding: 15px;
+    font-size: 1.2rem;
+    transition: all .2s;
+    box-shadow: 0px 0px 8px rgb(0 0 0 / 10%), 0px 4px 4px rgb(0 0 0 / 4%)
+}
+
+.contain-header .contain-button .btn:hover{
+    opacity: .9;
+    transition: all .2s;
+    cursor: pointer;
+}
+.grey{
+    background-color: black;
+    color: white;
+}
+
+.white:hover{
+    background-color: #333333;
+    opacity: .4;
+}
+
+.contain-burger{
+    width: 25vw;
+    height:100vh;
+    position: absolute;
+    top: 0;
+    left: -30vw;
+    background-color:white;
+    z-index: 1;
+    transition: all .5s;
+    
+}
+
+
+.contain-burger.active-burger{
+    left: 0;
+    transition: all .5s;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.contain-burger .close{
+    color: black;
+    font-size: 2.5em;
+    float: right;
+    margin-top: 10px;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.contain-burger .contain-button{
+    width: 90%;
+    height: auto;
+    margin: auto;
+    padding-top: 100px;
+    text-align: center;
+}
+
+.contain-burger .contain-button div{
+    padding: 16px 12px;
+    border: 1px solid black;
+    width: 80%;
+    margin: 15px auto;
+    border-radius: 8px;
+}
+
+.contain-burger .contain-button div:nth-child(1){
+    background-color: black;
+}
+
+.contain-burger .contain-button div:nth-child(2){
+    background-color: white;
+    color: black;
+}
+
+.contain-burger .contain-button div:nth-child(2) a{
+    color: black;
+}
+
+.contain-burger .contain-button a{
+    text-decoration: none;
+    font-size: 1.2em;
+    color: white;
+}
+
+.contain-nav{
+    width: 80%;
+    margin: auto;
+    margin-top: 50px;
+}
+
+li{
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+li a{
+    color: black;
+    text-decoration: none;
+    opacity: .9;
+    
+}
+
+
+
+/* style page home */
+
+
+.contain-home{
+    width: 100%;
+    
+}
+
+
+.contain-home .img-home{
+    width: 100%;
+    height: 100vh;
+    background-image: url('/assets/images/bg1.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+
+.contain-home .img-home img{
+    max-width: 100%;
+}
+
+
+.contain-home .contain-map{
+    width: 80%;
+    height: auto;
+    margin: auto;
+    border-radius: 8px;
+    background-color: white;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    position: absolute;
+    top: 85%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    box-shadow: 0px 4px 10px 0px rgb(32 42 39 / 9%);
+    z-index: 0;
+}
+
+.active-filter{
+    filter: brightness(0.3);
+}
+
+
+.contain-map .contain-text-map{
+    width: 40%;
+    height: 70vh;
+}
+
+.contain-map .contain-text-map h3{
+    font-size: 2em;
+    margin-top: 20px;
+    margin-left: 8px;
+}
+
+
+.contain-map .contain-text-map h3:after{
+    content: "";
+    display: block;
+    width: 70%;
+    height: 1px;
+    background-color: black;
+    margin-top: 50px;
+}
+
+.form-home-search{
+    width: 85%;
+    height: 70px;
+    margin-top: 50px;
+}
+
+
+
+.contain-map .map{
+    width: 50%;
+    height: 70vh;
+}
+
+.contain-map .map section{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.g2f-mapFrance-area {
+    fill: #fff;
+    stroke: #333333;
+}
+.g2f-mapFrance-area:hover{
+    fill: #333333;
+}
+
+.map section a {
+    text-decoration: none;
+    background-color: rgba(0,0,0,0);
+    color: inherit;
+}
+
+.contain-home-epc{
+    width: 100%;
+    height: 110vh;
+}
