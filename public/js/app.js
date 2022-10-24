@@ -2,7 +2,7 @@
 
 
 var className = "active";
-var scrollTrigger = 60;
+var scrollTrigger = 20;
 
 window.addEventListener('scroll',function(){
     if (window.scrollY >= scrollTrigger || window.pageYOffset >= scrollTrigger) {
@@ -15,12 +15,14 @@ window.addEventListener('scroll',function(){
 
 function BurgerActive(){
     document.getElementById('navburger').classList.toggle('active-burger');
-    document.getElementById('contain-home').classList.toggle('active-filter');
+    document.getElementById('body').classList.toggle('body-active');
+    document.getElementById('filter-active').classList.toggle('filter-active');
 }
 
 function BurgerClose(){
     document.getElementById('navburger').className ="contain-burger";
-    document.getElementById('contain-home').className = "contain-home";
+    document.getElementById('body').className = "";
+    document.getElementById('filter-active').className = "";
 }
 
 
