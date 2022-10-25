@@ -9,27 +9,54 @@
         
     </head>
     <body id="body">
-        <header>
+        <header {% if page == 'home' %} id="header" {% endif %}{% if page == 'feed' %} class="active pst-relative" {% endif %} >
             <div  class="contain-header">
                 <div class="burger">
                     <i onclick="BurgerActive()" class="fa-solid fa-bars"></i>
                 </div>
                 <div onclick="BurgerClose()" class="contain-title">
-                    <h1>Mon épicerie</h1>
-                    <form class="form-search-ville" action="">
-                        <input class="search-ville" type="text" name="SearchVille" id="SearchVille" placeholder="Chercher ma ville" autocomplete="off">
-                        <button id="btn-search-ville" class="btn-search"><i class="fa-solid fa-magnifying-glass"></i></button>
-                    </form>
+                    <a href="{{ path('app_home') }}"><h1>Mon épicerie</h1></a>
+                    {% if page == 'home' %}
+                        <form class="form-search-ville" action="#" method="post">
+                            <input class="search-ville" type="text" name="SearchVille" id="SearchVille" placeholder="Chercher ma ville" autocomplete="off">
+                            <button id="btn-search-ville" class="btn-search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        </form>
+                    {% endif %}
+
+                    {% if page == 'feed' %}
+                        <div class="contain-btn-feed">
+                            <div class="box-btn-mode">
+                                <a href="#">
+                                    <button class="active-btn">À emporter</button>
+                                </a>
+                                <a href="#">
+                                    <button>Livraison</button>
+                                </a>
+                            </div>
+                            <button class="btn-loca">Lieux livraison/commande</button>
+                        </div>
+                    {% endif %}
                 </div>
-                <div class="contain-button">
-                    <a href="#">
-                        <button class="btn white">Connexion</button>
-                    </a>
-                    <a href="#">
-                        <button id="header" class="btn grey">Inscription</button>
-                    </a>
+                <div class="contain-button {% if page == 'feed' %}jst-space-envenly{% endif %}">
+                    {% if page == 'home' %}
+                        <a href="#">
+                            <button class="btn white">Connexion</button>
+                        </a>
+                        <a href="#">
+                            <button id="header" class="btn grey">Inscription</button>
+                        </a>
+                    {% elseif page == 'feed' %}
+                        <a href="#">
+                            <button class="btn-loca">Connexion</button>
+                        </a>
+                        <a href="#">
+                            <button class="btn-loca grey">Inscription</button>
+                        </a>
+                    {% endif %}
+
                 </div>
             </div>
+
             <div id="navburger" class="contain-burger">
                 <div class="close">
                     <i onclick="BurgerActive()" class="fa-solid fa-xmark"></i>

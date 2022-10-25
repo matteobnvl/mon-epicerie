@@ -9,9 +9,9 @@ var scrollSearch = 450;
 
 window.addEventListener('scroll',function(){
     if (window.scrollY >= scrollTrigger || window.pageYOffset >= scrollTrigger) {
-        document.getElementsByTagName("header")[0].classList.add(className);
+        document.getElementById("header").classList.add(className);
     } else {
-        document.getElementsByTagName("header")[0].classList.remove(className);
+        document.getElementById("header").classList.remove(className);
     }
     if (window.scrollY >= scrollSearch || window.pageYOffset >= scrollSearch) {
         document.getElementById("SearchVille").classList.add(classNameSearch);
