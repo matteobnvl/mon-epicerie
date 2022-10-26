@@ -9,92 +9,124 @@
         
     </head>
     <body id="body">
-        <header {% if page == 'home' %} id="header" {% endif %}{% if page == 'feed' %} class="active pst-relative" {% endif %} >
-            <div  class="contain-header">
-                <div class="burger">
-                    <i onclick="BurgerActive()" class="fa-solid fa-bars"></i>
-                </div>
-                <div onclick="BurgerClose()" class="contain-title">
-                    <a href="{{ path('app_home') }}"><h1>Mon épicerie</h1></a>
-                    {% if page == 'home' %}
-                        <form class="form-search-ville" action="#" method="post">
-                            <input class="search-ville" type="text" name="SearchVille" id="SearchVille" placeholder="Chercher ma ville" autocomplete="off">
-                            <button id="btn-search-ville" class="btn-search"><i class="fa-solid fa-magnifying-glass"></i></button>
-                        </form>
-                    {% endif %}
+        {% if page != 'login' and page!= 'register' %}
+            <header {% if page == 'home' %} id="header" {% endif %}{% if page == 'feed' %} class="active pst-relative" {% endif %} >
+                <div  class="contain-header">
+                    <div class="burger">
+                        <i onclick="BurgerActive()" class="fa-solid fa-bars"></i>
+                    </div>
+                    <div onclick="BurgerClose()" class="contain-title">
+                        <a href="{{ path('app_home') }}"><h1>Mon épicerie</h1></a>
+                        {% if page == 'home' %}
+                            <form class="form-search-ville" action="#" method="post">
+                                <input class="search-ville" type="text" name="SearchVille" id="SearchVille" placeholder="Chercher ma ville" autocomplete="off">
+                                <button id="btn-search-ville" class="btn-search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                            </form>
+                        {% endif %}
 
-                    {% if page == 'feed' %}
-                        <div class="contain-btn-feed">
-                            <div class="box-btn-mode">
-                                <a href="#">
-                                    <button class="active-btn">À emporter</button>
+                        {% if page == 'feed' %}
+                            <div class="contain-btn-feed">
+                                <div class="box-btn-mode">
+                                    <a href="#">
+                                        <button class="active-btn">À emporter</button>
+                                    </a>
+                                    <a href="#">
+                                        <button>Livraison</button>
+                                    </a>
+                                </div>
+                                <button class="btn-loca"><i class="fa-solid fa-location-dot"></i>Lieux livraison/commande</button>
+                            </div>
+                        {% endif %}
+                    </div>
+                    <div class="contain-button {% if page == 'feed' %}jst-space-envenly{% endif %}">
+                        {% if not app.user %}
+                            {% if page == 'home' %}
+                                <a href="{{ path('app_login') }}">
+                                    <button class="btn white">Connexion</button>
                                 </a>
-                                <a href="#">
-                                    <button>Livraison</button>
+                                <a href="{{ path('app_register') }}">
+                                    <button id="header" class="btn grey">Inscription</button>
+                                </a>
+                            {% elseif page == 'feed' %}
+                                <a href="{{ path('app_login') }}">
+                                    <button class="btn-loca">Connexion</button>
+                                </a>
+                                <a href="{{ path('app_register') }}">
+                                    <button class="btn-loca grey">Inscription</button>
+                                </a>
+                            {% endif %}
+                        {% elseif page != 'home' and app.user %}
+                            <a href="#">
+                                <button class="btn-loca panier"><i class="fa-sharp fa-solid fa-cart-shopping"></i>Panier (0)</button>
+                            </a>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div id="navburger" class="contain-burger">
+                    <div class="close">
+                        <i onclick="BurgerActive()" class="fa-solid fa-xmark"></i>
+                    </div>
+                    {% if not app.user %}
+                        <div class="contain-button">
+                            <div>
+                                <a href="{{ path('app_register') }}">
+                                    Inscription
                                 </a>
                             </div>
-                            <button class="btn-loca">Lieux livraison/commande</button>
+                            <div>
+                                <a href="{{ path('app_login') }}">
+                                    Connexion
+                                </a>
+                            </div>
                         </div>
-                    {% endif %}
-                </div>
-                <div class="contain-button {% if page == 'feed' %}jst-space-envenly{% endif %}">
-                    {% if page == 'home' %}
-                        <a href="#">
-                            <button class="btn white">Connexion</button>
-                        </a>
-                        <a href="#">
-                            <button id="header" class="btn grey">Inscription</button>
-                        </a>
-                    {% elseif page == 'feed' %}
-                        <a href="#">
-                            <button class="btn-loca">Connexion</button>
-                        </a>
-                        <a href="#">
-                            <button class="btn-loca grey">Inscription</button>
-                        </a>
-                    {% endif %}
+                    {% else %}
+                        <div class="contain-profil-burger">
+                            <div class="profil-rond"><i class="fa-solid fa-user"></i></div>
+                            <div class="box-profil">
+                                <p>{{ app.user.getPrenom() }}</p>
+                                <a href="#">Voir mon compte</a>
+                            </div>
+                        </div>
+                        <div class="contain-nav mg-0">
+                            <ul>
+                                <li>
+                                    <a href="#"><i class="fa-sharp fa-solid fa-tag"></i>Mes commandes</a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="fa-solid fa-heart"></i>Mes favoris</a>
+                                </li>
+                                <li>
+                                    <a class="logout" href="{{ path('app_logout') }}"><i class="fa-solid fa-right-from-bracket"></i>Déconnexion</a>
+                                </li>
+                            </ul>
+                        </div>
 
-                </div>
-            </div>
 
-            <div id="navburger" class="contain-burger">
-                <div class="close">
-                    <i onclick="BurgerActive()" class="fa-solid fa-xmark"></i>
-                </div>
-                <div class="contain-button">
-                    <div>
-                        <a href="#">
-                            Inscription
-                        </a>
+                    {% endif %}
+                    <div class="contain-nav">
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    Créez un compte professionnel
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Ajoutez votre épicerie
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Devenez coursier-partenaire
+                                </a>
+                            </li>
+                        </ul>
                     </div>
-                    <div>
-                        <a href="#">
-                            Connexion
-                        </a>
-                    </div>
                 </div>
-                <div class="contain-nav">
-                    <ul>
-                        <li>
-                            <a href="#">
-                                Créez un compte professionnel
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                Ajoutez votre épicerie
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                Devenez coursier-partenaire
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div id="filter-active" class=""></div>
-        </header>
+                <div id="filter-active" class=""></div>
+            </header>
+        {% endif %}
         <main>
             {% block body %}{% endblock %}
         </main>

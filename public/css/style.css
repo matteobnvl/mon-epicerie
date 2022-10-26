@@ -58,6 +58,16 @@ header{
     margin: 0px 50px;
 }
 
+.panier{
+    margin-right: 80px;
+    background-color: black!important;
+    color: white;
+}
+
+.btn-loca i{
+    margin-right: 15px;
+}
+
 
 .contain-btn-feed{
     width: 70%;
@@ -330,6 +340,64 @@ li a{
     transition: opacity .5s;
 }
 
+
+/* burger connecté */
+
+.contain-profil-burger{
+    width: 85%;
+    height: 15%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.profil-rond{
+    width: 60px;
+    height: 60px;
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #EEEEEE;
+}
+
+.profil-rond i{
+    font-size: 2rem;
+}
+
+.box-profil{
+    width: 65%;
+    height: 40%;
+}
+
+.box-profil p{
+    text-transform: capitalize;
+}
+
+.box-profil a{
+    text-decoration: none;
+    color: black;
+    font-size: .8rem;
+}
+
+.logout:after{
+    content: "";
+    display: block;
+    width: 90%;
+    height: 2px;
+    background-color: black;
+    margin: auto;
+    margin-top: 50px;
+
+}
+
+.mg-0{
+    margin-top: 10px!important;
+}
+
+li i{
+    margin-right: 30px;
+}
 
 /* style page home */
 
