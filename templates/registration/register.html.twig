@@ -30,15 +30,23 @@
                     </div>
                 </div>
                 <div id="thirdRegister" class="box-register" >
-                    <div>
+                    <div class="contain-verif">
                         {{ form_widget(registrationForm.plainPassword, {
                             label: 'Password'
                         }) }}
-                        <input type="password" name="repeat-password" placeholder="Répéter mot de passe" required>
+                        <div class="box-verif">
+                            <ul>
+                                <li class="valid"><i id="closeLenght" class="fa-solid fa-xmark red"></i><i id="checkLenght" class="fa-solid fa-check green hidden"></i>8 caractères</li>
+                                <li class="valid"><i id="closeMaj" class="fa-solid fa-xmark red"></i><i id="checkMaj" class="fa-solid fa-check green hidden"></i>1 Majuscule</li>
+                                <li class="valid"><i id="closeNumber" class="fa-solid fa-xmark red"></i><i id="checkNumber" class="fa-solid fa-check green hidden"></i>1 chiffre</li>
+                                <li class="valid"><i id="closeMin" class="fa-solid fa-xmark red"></i><i id="checkMin" class="fa-solid fa-check green hidden"></i>1 Minuscule</li>
+                            </ul>
+                        </div>
                     </div>
+                    <input id="repeatMdp" class="hidden" type="password" name="repeat-password" placeholder="Répéter mot de passe" required>
                     <div style="margin-top:20px ;">
-                        <div onclick="retourRegister2()" style="width: 30px !important; margin-right: 50px;" class="btn-loca grey retour"><i class="fa-solid fa-arrow-left"></i></div>
-                        <button id="thirdBtnRegister" type="submit" class="btn-loca grey">Créez mon compte</button>
+                        <div onclick="retourRegister2()" style="width: 30px !important; margin-right: 50px; display:block !important; margin:0;" class="btn-loca grey retour"><i class="fa-solid fa-arrow-left"></i></div>
+                        <button id="thirdBtnRegister" type="submit" class="btn-loca grey hidden">Créez mon compte</button>
                     </div>
                 </div>
 

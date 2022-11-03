@@ -32,7 +32,6 @@ document.getElementById('BtnOne').addEventListener('click', function(){
     }
 })
 
-
 document.getElementById('BtnTwo').addEventListener('click', function(){
     var valid_phone = 0;
     var valid_day = 0;
@@ -75,3 +74,75 @@ document.getElementById('BtnTwo').addEventListener('click', function(){
         changeRegister2();
     }
 })
+
+password = "";
+
+document.getElementById('registration_form_plainPassword').addEventListener('input', function(){
+    password = this.value;
+    if(password.match( /[0-9]/g)){
+        document.getElementById('closeNumber').classList.add('hidden');
+        document.getElementById('checkNumber').classList.remove('hidden');
+    }else{
+        document.getElementById('closeNumber').classList.remove('hidden');
+        document.getElementById('checkNumber').classList.add('hidden');
+    }
+
+    if(password.match( /[A-Z]/g)){
+        document.getElementById('closeMaj').classList.add('hidden');
+        document.getElementById('checkMaj').classList.remove('hidden');
+    }else{
+        document.getElementById('closeMaj').classList.remove('hidden');
+        document.getElementById('checkMaj').classList.add('hidden');
+    }
+
+    if(password.match( /[a-z]/g)){
+        document.getElementById('closeMin').classList.add('hidden');
+        document.getElementById('checkMin').classList.remove('hidden');
+    }else{
+        document.getElementById('closeMin').classList.remove('hidden');
+        document.getElementById('checkMin').classList.add('hidden');
+    }
+
+    if(password.length >= 8){
+        document.getElementById('closeLenght').classList.add('hidden');
+        document.getElementById('checkLenght').classList.remove('hidden');
+    }else{
+        document.getElementById('closeLenght').classList.remove('hidden');
+        document.getElementById('checkLenght').classList.add('hidden');
+    }
+    if (password.match( /[0-9]/g) && password.match( /[A-Z]/g) && password.match(/[a-z]/g) && password.length >= 8){
+                document.getElementById('repeatMdp').classList.remove('hidden');
+                password = this.value;
+                console.log(password)
+            }else{
+                document.getElementById('repeatMdp').classList.add('hidden');
+            }
+
+})
+
+
+document.getElementById('repeatMdp').addEventListener('input',function(){
+    if(this.value == password){
+        document.getElementById('thirdBtnRegister').classList.remove('hidden');
+    }else{
+        document.getElementById('thirdBtnRegister').classList.add('hidden');
+    }
+})
+
+/*
+
+function validate() { 
+    var msg; 
+    var str = document.getElementById("mdp").value; 
+    if (str.match( /[0-9]/g) && 
+            str.match( /[A-Z]/g) && 
+            str.match(/[a-z]/g) && 
+            str.match( /[^a-zA-Z\d]/g) &&
+            str.length >= 8) 
+        msg = "<p style='color:green'>Mot de passe fort.</p>"; 
+    else 
+        msg = "<p style='color:red'>Mot de passe faible.</p>"; 
+    document.getElementById("msg").innerHTML= msg; 
+}
+
+*/
