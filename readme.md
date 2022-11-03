@@ -17,3 +17,12 @@
 ## stopper le server 
 
 - ``` symfony server:stop ```
+
+
+## Création de la base de données
+
+- ``` php bin/console doctrine:database:create```
+
+## Schéma de la base de données
+
+- ```php bin/console doctrine:schema:create```

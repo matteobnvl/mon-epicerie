@@ -3,21 +3,49 @@
 {% block title %}Register{% endblock %}
 
 {% block body %}
-    <h1>Register</h1>
+    <div class="contain-login">
+        <div class="form-login">
+            <h1>Inscription</h1>
 
-    {{ form_start(registrationForm) }}
-        {{ form_widget(registrationForm.nom) }}
-        {{ form_widget(registrationForm.prenom) }}
-        {{ form_widget(registrationForm.email) }}
-        {{ form_widget(registrationForm.phone) }}
-        {{ form_widget(registrationForm.date_naissance) }}
-        {{ form_widget(registrationForm.ville_reference) }}
-        {{ form_widget(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}
-        {{ form_row(registrationForm.agreeTerms) }}
+            {{ form_start(registrationForm) }}
+                <div id="firstRegister" class="box-register first">
+                    <div>
+                        {{ form_widget(registrationForm.nom) }}
+                        {{ form_widget(registrationForm.prenom) }}
+                    </div>
+                    {{ form_widget(registrationForm.email) }}
+                    <div  style="margin-top:20px;">
+                        <div id="BtnOne" class="btn-loca grey">Suivant <i class="fa-solid fa-arrow-right"></i></div>
+                    </div>
+                </div>
+                <div id="secondRegister" class="box-register">
+                    <div>
+                        {{ form_widget(registrationForm.phone) }}
+                        {{ form_widget(registrationForm.date_naissance) }}
+                    </div>
+                    {{ form_widget(registrationForm.ville_reference) }}
+                    <div style="margin-top:20px ;">
+                        <div onclick="retourRegister1()" style="width: 30px !important; margin-right: 50px;" class="btn-loca grey retour"><i class="fa-solid fa-arrow-left"></i></div>
+                        <div id="BtnTwo" class="btn-loca grey">Finir l'inscription <i class="fa-solid fa-arrow-right"></i></div>
+                    </div>
+                </div>
+                <div id="thirdRegister" class="box-register" >
+                    <div>
+                        {{ form_widget(registrationForm.plainPassword, {
+                            label: 'Password'
+                        }) }}
+                        <input type="password" name="repeat-password" placeholder="Répéter mot de passe" required>
+                    </div>
+                    <div style="margin-top:20px ;">
+                        <div onclick="retourRegister2()" style="width: 30px !important; margin-right: 50px;" class="btn-loca grey retour"><i class="fa-solid fa-arrow-left"></i></div>
+                        <button id="thirdBtnRegister" type="submit" class="btn-loca grey">Créez mon compte</button>
+                    </div>
+                </div>
 
 
-        <button type="submit" class="btn">Register</button>
-    {{ form_end(registrationForm) }}
+                
+            {{ form_end(registrationForm) }}
+        </div>
+    </div>
+    <script src="js/app_register.js"></script>
 {% endblock %}

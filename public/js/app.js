@@ -29,6 +29,28 @@ document.getElementById("SearchVille").addEventListener('input', function(){
     }
 });
 
+
+function changeRegister1(){
+    document.getElementById("firstRegister").classList.remove('first');
+    document.getElementById("secondRegister").classList.add('second');
+}
+
+function retourRegister1(){
+    document.getElementById("firstRegister").classList.add('first');
+    document.getElementById("secondRegister").classList.remove('second');
+}
+
+function changeRegister2(){
+    document.getElementById("secondRegister").classList.remove('second');
+    document.getElementById("thirdRegister").classList.add('third');
+}
+
+function retourRegister2(){
+    document.getElementById("secondRegister").classList.add('second');
+    document.getElementById("thirdRegister").classList.remove('third');
+}
+
+
 function BurgerActive(){
     document.getElementById('navburger').classList.toggle('active-burger');
     document.getElementById('body').classList.toggle('body-active');
